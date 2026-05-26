@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot RioSalud</title>
+
+  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #0f3d73;
+      color: white;
+      padding: 35px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      background: #eef5ff;
+      border-left: 5px solid #0f3d73;
+      border-radius: 10px;
+    }
+
+    df-messenger {
+      z-index: 999;
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      --df-messenger-font-color: #000000;
+      --df-messenger-font-family: Arial;
+      --df-messenger-chat-background: #ffffff;
+      --df-messenger-message-user-background: #d3e3fd;
+      --df-messenger-message-bot-background: #f1f3f4;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Chatbot RioSalud</h1>
+    <p>Asistente virtual para la gestión integral de citas médicas</p>
+  </header>
+
+  <main>
+    <h2>Bienvenido</h2>
+    <p>
+      Este prototipo permite consultar horarios, especialidades médicas,
+      solicitar citas y registrar información básica del paciente.
+    </p>
+
+    <div class="card">
+      <strong>Prueba el chatbot:</strong>
+      <p>Haz clic en el ícono de chat ubicado en la esquina inferior derecha.</p>
+      <p>Ejemplo de consulta: ¿Cuál es el horario de atención?</p>
+    </div>
+  </main>
+
+  <df-messenger
+    project-id="chatbot-riosalud"
+    agent-id="78a4ef74-0a86-4d6c-a6b7-9879f93a1bcf"
+    language-code="es"
+    location="global"
+    max-query-length="-1">
+    <df-messenger-chat-bubble
+      chat-title="Chatbot RioSalud">
+    </df-messenger-chat-bubble>
+  </df-messenger>
+
+</body>
+</html>
