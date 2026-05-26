@@ -2,53 +2,77 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatbot RioSalud</title>
 
-  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  <!-- Librería oficial del Messenger de Dialogflow / Conversational Agents -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f5f7fb;
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fb;
       color: #1f2937;
     }
 
     header {
-      background: #0f3d73;
+      background-color: #0f3d73;
       color: white;
-      padding: 35px;
       text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
     }
 
     main {
       max-width: 900px;
       margin: 40px auto;
-      background: white;
+      background-color: white;
       padding: 30px;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    main h2 {
+      margin-top: 0;
+      color: #0f3d73;
     }
 
     .card {
       margin-top: 20px;
       padding: 20px;
-      background: #eef5ff;
+      background-color: #eef5ff;
       border-left: 5px solid #0f3d73;
       border-radius: 10px;
     }
 
+    .card p {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      padding: 20px;
+      font-size: 14px;
+    }
+
     df-messenger {
-      z-index: 999;
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
+      --df-messenger-bot-message: #f1f3f4;
+      --df-messenger-button-titlebar-color: #0f3d73;
+      --df-messenger-chat-background-color: #ffffff;
       --df-messenger-font-color: #000000;
-      --df-messenger-font-family: Arial;
-      --df-messenger-chat-background: #ffffff;
-      --df-messenger-message-user-background: #d3e3fd;
-      --df-messenger-message-bot-background: #f1f3f4;
+      --df-messenger-send-icon: #0f3d73;
+      --df-messenger-user-message: #d3e3fd;
     }
   </style>
 </head>
@@ -61,6 +85,7 @@
 
   <main>
     <h2>Bienvenido</h2>
+
     <p>
       Este prototipo permite consultar horarios, especialidades médicas,
       solicitar citas y registrar información básica del paciente.
@@ -69,20 +94,20 @@
     <div class="card">
       <strong>Prueba el chatbot:</strong>
       <p>Haz clic en el ícono de chat ubicado en la esquina inferior derecha.</p>
-      <p>Ejemplo de consulta: ¿Cuál es el horario de atención?</p>
+      <p><strong>Ejemplo:</strong> ¿Cuál es el horario de atención?</p>
     </div>
   </main>
 
-  <df-messenger
-    project-id="chatbot-riosalud"
-    agent-id="78a4ef74-0a86-4d6c-a6b7-9879f93a1bcf"
-    language-code="es"
-    location="global"
-    max-query-length="-1">
-    <df-messenger-chat-bubble
-      chat-title="Chatbot RioSalud">
-    </df-messenger-chat-bubble>
-  </df-messenger>
+  <footer>
+    Prototipo académico desarrollado en Google Conversational Agents.
+  </footer>
 
+  <!-- Chatbot de Google Conversational Agents / Dialogflow CX Messenger -->
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Chatbot RioSalud"
+    agent-id="78a4ef74-0a86-4d6c-a6b7-9879f93a1bcf"
+    language-code="es">
+  </df-messenger>
 </body>
 </html>
